@@ -33,7 +33,7 @@ class Name(object):
     __slots__ = ('genders', 'native_language', 'translations')
 
     def __init__(self, data):
-        self.native_language = data['native_language']
+        self.native_language = data['lang']
         self.genders = frozenset(data['genders'].keys())
         self.translations = data['genders']
 

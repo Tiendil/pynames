@@ -3,21 +3,21 @@
 import os
 import unittest
 
-from .generators import Name, GENDER, LANGUAGE, FromListGenerator, PynamesException
+from .generators import Name, GENDER, LANGUAGE, FromListGenerator
 
 FIXTURES_DIR = os.path.join(os.path.dirname(__file__), 'fixtures')
 
 class TestName(unittest.TestCase):
 
     def test_base(self):
-        name = Name({'native_language': 'ru',
+        name = Name({'lang': 'ru',
                      'genders': {'m': {'ru': 'ru_name'}}})
         self.assertEqual(unicode(name), 'ru_name')
         self.assertEqual(name.get_for(GENDER.MALE, LANGUAGE.RU), 'ru_name')
         self.assertEqual(name.get_for(GENDER.MALE), 'ru_name')
 
     def test_genders(self):
-        name = Name({'native_language': 'ru',
+        name = Name({'lang': 'ru',
                      'genders': {'m': {'ru': 'ru_m_name'},
                                  'f': {'ru': 'ru_f_name'}}})
         self.assertEqual(unicode(name), 'ru_m_name')
@@ -25,7 +25,7 @@ class TestName(unittest.TestCase):
         self.assertEqual(name.get_for(GENDER.FEMALE, LANGUAGE.RU), 'ru_f_name')
 
     def test_languages(self):
-        name = Name({'native_language': 'ru',
+        name = Name({'lang': 'ru',
                      'genders': {'m': {'ru': 'ru_m_name',
                                        'en': 'en_m_name'},
                                  'f': {'ru': 'ru_f_name',
