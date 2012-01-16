@@ -1,0 +1,32 @@
+{
+    "names": [ {"native_language": "ru",
+                "genders": {"m": {"ru": "ru_m_name_1",
+                                  "en": "en_m_name_1"}}},
+
+               {"native_language": "ru",
+                "genders": {"f": {"ru": "ru_f_name_2",
+                                  "en": "en_f_name_2"}}},
+
+               {"native_language": "ru",
+                "genders": {"f": {"ru": "ru_f_name_3",
+                                  "en": "en_f_name_3"}}},
+
+               {"native_language": "ru",
+                "genders": {"m": {"ru": "ru_m_name_4",
+                                  "en": "en_m_name_4"},
+                            "f": {"ru": "ru_f_name_4",
+                                  "en": "en_f_name_4"}}},
+
+               {"native_language": "ru",
+                "genders": {"m": {"ru": "ru_m_name_5",
+                                  "en": "en_m_name_5"},
+                            "f": {"ru": "ru_f_name_5",
+                                  "en": "en_f_name_5"}}},
+
+               {"native_language": "ru",
+                "genders": {"m": {"ru": "ru_m_name_5",
+                                  "en": "en_m_name_5"},
+                            "f": {"ru": "ru_f_name_5",
+                                  "en": "en_f_name_5"}}}
+             ]
+}
