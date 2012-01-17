@@ -1,0 +1,25 @@
+{
+    "source": "",
+    "languages": ["ru", "en"],
+    "native_language": "en",
+    "templates": { "t1": {"probability": 2,
+                          "genders": ["m"],
+                          "template": ["table1", "table2"]},
+                   "t2": {"probability": 2,
+                          "genders": ["f"],
+                          "template": ["table1", "table3"]},
+                   "t3": {"probability": 1,
+                          "genders": ["m", "f"],
+                          "template": ["table1", "table2", "table4", "table3"]}},
+
+    "tables": { "table1": [{"languages": {"en": "T1EN1", "ru": "T1RU1"}},
+                           {"languages": {"en": "T1EN2", "ru": "T1RU2"}},
+                           {"languages": {"en": "T1EN3", "ru": "T1RU3"}}],
+
+                "table2": [{"languages": {"en": "_m_en_1", "ru": "_m_ru_1"}},
+                           {"languages": {"en": "_m_en_2", "ru": "_m_ru_2"}}],
+
+                "table3": [{"languages": {"en": "_f_en_1", "ru": "_f_ru_1"}}],
+
+                "table4": [{"languages": {"en": "'", "ru": "'"}}]}
+}

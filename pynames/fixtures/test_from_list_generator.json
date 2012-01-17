@@ -1,30 +1,25 @@
 {
-    "names": [ {"lang": "ru",
-                "genders": {"m": {"ru": "ru_m_name_1",
+    "native_language": "ru",
+    "names": [ {"genders": {"m": {"ru": "ru_m_name_1",
                                   "en": "en_m_name_1"}}},
 
-               {"lang": "ru",
-                "genders": {"f": {"ru": "ru_f_name_2",
+               {"genders": {"f": {"ru": "ru_f_name_2",
                                   "en": "en_f_name_2"}}},
 
-               {"lang": "ru",
-                "genders": {"f": {"ru": "ru_f_name_3",
+               {"genders": {"f": {"ru": "ru_f_name_3",
                                   "en": "en_f_name_3"}}},
 
-               {"lang": "ru",
-                "genders": {"m": {"ru": "ru_m_name_4",
+               {"genders": {"m": {"ru": "ru_m_name_4",
                                   "en": "en_m_name_4"},
                             "f": {"ru": "ru_f_name_4",
                                   "en": "en_f_name_4"}}},
 
-               {"lang": "ru",
-                "genders": {"m": {"ru": "ru_m_name_5",
+               {"genders": {"m": {"ru": "ru_m_name_5",
                                   "en": "en_m_name_5"},
                             "f": {"ru": "ru_f_name_5",
                                   "en": "en_f_name_5"}}},
 
-               {"lang": "ru",
-                "genders": {"m": {"ru": "ru_m_name_5",
+               {"genders": {"m": {"ru": "ru_m_name_5",
                                   "en": "en_m_name_5"},
                             "f": {"ru": "ru_f_name_5",
                                   "en": "en_f_name_5"}}}
