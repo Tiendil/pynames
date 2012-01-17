@@ -10,6 +10,9 @@ FIXTURES_DIR = os.path.join(os.path.dirname(__file__), 'fixtures')
 class WarhammerNamesGenerator(FromTablesGenerator):
     SOURCE = os.path.join(FIXTURES_DIR, 'warhammer_names_tables.json')
 
+class DnDNamesGenerator(FromTablesGenerator):
+    SOURCE = os.path.join(FIXTURES_DIR, 'dnd_names_tables.json')
+
 
 
 
