@@ -41,6 +41,7 @@ class FromTablesGenerator(BaseGenerator):
     SOURCE = None
 
     def __init__(self):
+        super(FromTablesGenerator, self).__init__()
         self.templates_choices = {}
         self.templates = []
         self.tables = {}
@@ -57,7 +58,8 @@ class FromTablesGenerator(BaseGenerator):
                                for template_name, template_data in data['templates'].items() ]
             self.tables = data['tables']
 
-    def _get_templates_cache_key(self, genders):
+    @staticmethod
+    def _get_templates_cache_key(genders):
         return 't:%s' % '_'.join(genders)
 
     def _get_templates_slice(self, genders):

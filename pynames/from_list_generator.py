@@ -9,6 +9,7 @@ class FromListGenerator(BaseGenerator):
     SOURCE = None
 
     def __init__(self):
+        super(FromListGenerator, self).__init__()
         self.names_list = []
         self.choices = {}
 
@@ -24,7 +25,8 @@ class FromListGenerator(BaseGenerator):
         if not self.names_list:
             raise PynamesException('FromListGenerator: no names loaded from "%s"' % self.SOURCE)
 
-    def _get_cache_key(self, genders):
+    @staticmethod
+    def _get_cache_key(genders):
         return '_'.join(genders)
 
     def _get_slice(self, genders):
