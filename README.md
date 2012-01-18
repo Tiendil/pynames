@@ -5,17 +5,20 @@
 Библиотека легко расширяема, если Вам нужен дополнительный функционал (или дополнительные языки), свяжитесь со мной (или просто запостите issue), а лучше реализуейте и сделайте pull-запрос.
 
 ## Пример использования
+
 ```python
 from pynames.generators import GENDER,  LANGUAGE
 ```
 
 Все генераторы разбиты по языкам (или по рассам), так, что все генераторы эльфийских имён находятся в модуле pynames.elven
+
 ```python
 from pynames.elven import DnDNamesGenerator
 elven_generator = DnDNamesGenerator()
 ```
 
 количество различных имён (мужских и женских) и для каждого пола в отдельности
+
 ```python
 In [4]: elven_generator.get_names_number() 
 Out[4]: 1952949936
@@ -28,6 +31,7 @@ Out[6]: 976474968
 ```
 
 Быстрое получение просто случайного имени
+
 ```python
 In [7]: elven_generator.get_name_simple() 
 Out[7]: u'Elineer'
@@ -40,6 +44,7 @@ Out[9]: u'Mararon'
 ```
 
 вместо текста можно получить объект имени с подробной информацией
+
 ```python
 In [10]: name = elven_generator.get_name()  
 
