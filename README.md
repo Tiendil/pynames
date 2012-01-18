@@ -1,6 +1,6 @@
 # PYNAMES - библиотека для генерации имён 
 
-**Name generation library - [[see English description here|EN_README]]**
+**Name generation library - [see English description here](https://github.com/Tiendil/pynames/wiki/EN_README)**
 
 Основное назначение библиотеки - генерация имён персонажей в играх. Например, эльфийски, дварфских, корейских, монгольских, в общем - любых.
 
