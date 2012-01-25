@@ -1,1 +1,1 @@
-recursive-include *.json
+global-include *.json
