@@ -1,5 +1,6 @@
 {
     "source": "http://www.gaminggeeks.org/Resources/KateMonk/",
+    "translation": "Wizard-worker and Swingaroo",
     "native_language": "en",
     "names": [{"genders": {"m": {"en": "Al", "ru": "Ал"}, "f": {"en": "Al", "ru": "Ал"}}},
               {"genders": {"m": {"en": "Alagh", "ru": "Алагх"}, "f": {"en": "Alagh", "ru": "Алагх"}}},
