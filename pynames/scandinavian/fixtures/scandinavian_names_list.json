@@ -1,6 +1,7 @@
 {
     "source": "http://www.gaminggeeks.org/Resources/KateMonk/",
-    "native_language": "en",
+    "translation": "Wizard-worker and Swingaroo",
+    "native_language": "ru",
     "names": [ 
                {"genders": {"m": {"en": "Adalbrikt", "ru": "Адалбрикт", "ru_ext": "Адалбрикт"}}},
                {"genders": {"m": {"en": "Adalradr", "ru": "Адалрадр", "ru_ext": "Адалрадр"}}},
@@ -240,7 +241,7 @@
                {"genders": {"m": {"en": "Frodr", "ru": "Фродр", "ru_ext": "Фродр"}}},
                {"genders": {"m": {"en": "Frosten", "ru": "Фростен", "ru_ext": "Фростен"}}},
                {"genders": {"m": {"en": "Fyrkat", "ru": "Фиркат", "ru_ext": "Фиркат"}}},
-               {"genders": {"m": {"en": "Gaddr"}, "ru": "Гаддр", "ru_ext": "Гаддр",}},
+               {"genders": {"m": {"en": "Gaddr", "ru": "Гаддр", "ru_ext": "Гаддр"}}},
                {"genders": {"m": {"en": "Gaedar", "ru": "Гаедар", "ru_ext": "Гäдар"}}},
                {"genders": {"m": {"en": "Gaetir", "ru": "Гаетир", "ru_ext": "Гäтир"}}},
                {"genders": {"m": {"en": "Gamal", "ru": "Гамал", "ru_ext": "Гамал"}}},
@@ -399,7 +400,7 @@
                {"genders": {"m": {"en": "Heilagr", "ru": "Хейлагр", "ru-ext": "Хėлагр"}}},
                {"genders": {"m": {"en": "Heming", "ru": "Хеминг", "ru-ext": "Хеминг"}}},
                {"genders": {"m": {"en": "Hemingr", "ru": "Хемингр", "ru-ext": "Хемингр"}}},
-               {"genders": {"m": {"en": "Hemming", "ru": "Хемминг", "ru-ext": , "ru-ext":}}},
+               {"genders": {"m": {"en": "Hemming", "ru": "Хемминг", "ru-ext": "Хемминг"}}},
                {"genders": {"m": {"en": "Hergeirr", "ru": "Хергейрр", "ru-ext": "Хергėрр"}}},
                {"genders": {"m": {"en": "Herimann", "ru": "Хериманн", "ru-ext": "Хериманн"}}},
                {"genders": {"m": {"en": "Heriold", "ru": "Хериольд", "ru-ext": "Хериольд"}}},
