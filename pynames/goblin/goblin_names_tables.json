@@ -7,7 +7,7 @@
                               "template": ["prefixes", "male_suffixes"]},
                    "female": {"probability": 1,
                                 "genders": ["f"],
-                                "template": ["prefixes", "female_suffixes"]},
+                                "template": ["prefixes", "female_suffixes"]}
                  },
         "tables": { "apostrophe": [{"languages": {"ru": "'"}}],
                 "prefixes": [{"languages": {"ru": "Б"}},
