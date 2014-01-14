@@ -1,5 +1,6 @@
 {
     "source": "http://www.gaminggeeks.org/Resources/KateMonk/",
+    "translation": "Wizard-worker and Swingaroo",
     "native_language": "en",
     "names": [ {"genders": {"m": {"en": "An-Kor", "ru":"Ан-Кор"}}},
                {"genders": {"m": {"en": "Bong-Chol", "ru":"Бонг-Чол"}}},
