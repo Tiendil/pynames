@@ -1,5 +1,6 @@
 {
     "source": "http://www.angelfire.com/rpg2/vortexshadow/names.html",
+    "translation": "Wizard-worker and Swingaroo",
     "languages": ["en", "ru"],
     "native_language": "en",
     "templates": { "male_1": {"probability": 4,
