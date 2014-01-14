@@ -1,5 +1,5 @@
 {
-    "source": "http://www.gaminggeeks.org/Resources/KateMonk/",
+    "source": "Wizard-worker",
     "native_language": "ru",
     "names": [ {"genders": {"m": {"ru": "Ахн"}}},
                {"genders": {"m": {"ru": "Ахер"}}},
@@ -166,7 +166,7 @@
                {"genders": {"m": {"ru": "Нхордат"}}},
                {"genders": {"m": {"ru": "Нхестес"}}},
                {"genders": {"m": {"ru": "Нестарх"}}},
-               {"genders": {"m": {"ru": "Нсотрих}}},
+               {"genders": {"m": {"ru": "Нсотрих"}}},
                {"genders": {"m": {"ru": "Пархен"}}},
                {"genders": {"m": {"ru": "Пхуст"}}},
                {"genders": {"m": {"ru": "Пхостес"}}},
