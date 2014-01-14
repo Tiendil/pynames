@@ -1,5 +1,6 @@
 {
     "source": "http://forums.goha.ru/showthread.php?t=150619",
+    "translation": "Wizard-worker and Swingaroo",
     "languages": ["en", "ru"],
     "native_language": "en",
     "templates": { "male": {"probability": 1,
