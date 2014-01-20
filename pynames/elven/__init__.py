@@ -3,7 +3,7 @@
 
 import os
 
-from ..from_tables_generator import FromTablesGenerator
+from pynames.from_tables_generator import FromTablesGenerator
 
 FIXTURES_DIR = os.path.join(os.path.dirname(__file__), 'fixtures')
 
@@ -12,8 +12,3 @@ class WarhammerNamesGenerator(FromTablesGenerator):
 
 class DnDNamesGenerator(FromTablesGenerator):
     SOURCE = os.path.join(FIXTURES_DIR, 'dnd_names_tables.json')
-
-
-
-
-

@@ -25,7 +25,7 @@ class BaseGenerator(object):
 
 
 class Name(object):
-    
+
     __slots__ = ('genders', 'native_language', 'translations')
 
     def __init__(self, native_language, data):
@@ -41,7 +41,7 @@ class Name(object):
     def exists_for(self, genders):
         return genders & self.genders
 
-    def __unicode__(self): 
+    def __unicode__(self):
         for gender in GENDER.ALL:
             if gender in self.genders:
                 return self.translations[gender][self.native_language]
@@ -49,5 +49,3 @@ class Name(object):
         raise PynamesException(error_msg)
 
     def __str__(self): return self.__unicode__()
-
-

@@ -3,9 +3,9 @@
 import os
 import unittest
 
-from ..generators import Name, GENDER, LANGUAGE
-from ..from_list_generator import FromListGenerator
-from ..from_tables_generator import FromTablesGenerator
+from pynames.generators import Name, GENDER, LANGUAGE
+from pynames.from_list_generator import FromListGenerator
+from pynames.from_tables_generator import FromTablesGenerator
 
 FIXTURES_DIR = os.path.join(os.path.dirname(__file__), 'fixtures')
 
@@ -71,15 +71,15 @@ class TestFromListGenerator(unittest.TestCase):
 
         for i in xrange(100):
             name = generator.get_name_simple(gender=GENDER.MALE, language=LANGUAGE.RU)
-            self.assertTrue(name in self.NAMES_RU_MALE)            
+            self.assertTrue(name in self.NAMES_RU_MALE)
 
         for i in xrange(100):
             name = generator.get_name_simple(gender=GENDER.FEMALE, language=LANGUAGE.RU)
-            self.assertTrue(name in self.NAMES_RU_FEMALE)          
+            self.assertTrue(name in self.NAMES_RU_FEMALE)
 
         for i in xrange(100):
             name = generator.get_name_simple(gender=GENDER.MALE, language=LANGUAGE.EN)
-            self.assertTrue(name in self.NAMES_EN_MALE)              
+            self.assertTrue(name in self.NAMES_EN_MALE)
 
         for i in xrange(100):
             name = generator.get_name_simple(gender=GENDER.FEMALE, language=LANGUAGE.EN)
@@ -120,15 +120,15 @@ class TestFromTablesGenerator(unittest.TestCase):
 
         for i in xrange(100):
             name = generator.get_name_simple(gender=GENDER.MALE, language=LANGUAGE.RU)
-            self.assertTrue(name in self.NAMES_RU_MALE)            
+            self.assertTrue(name in self.NAMES_RU_MALE)
 
         for i in xrange(100):
             name = generator.get_name_simple(gender=GENDER.FEMALE, language=LANGUAGE.RU)
-            self.assertTrue(name in self.NAMES_RU_FEMALE)          
+            self.assertTrue(name in self.NAMES_RU_FEMALE)
 
         for i in xrange(100):
             name = generator.get_name_simple(gender=GENDER.MALE, language=LANGUAGE.EN)
-            self.assertTrue(name in self.NAMES_EN_MALE)              
+            self.assertTrue(name in self.NAMES_EN_MALE)
 
         for i in xrange(100):
             name = generator.get_name_simple(gender=GENDER.FEMALE, language=LANGUAGE.EN)
