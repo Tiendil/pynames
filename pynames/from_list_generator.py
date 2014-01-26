@@ -17,10 +17,13 @@ class FromListGenerator(BaseGenerator):
             error_msg = 'FromListGenerator: you must make subclass of FromListGenerator and define attribute SOURCE in it.'
             raise NotImplementedError(error_msg)
 
+
         with open(self.SOURCE) as f:
-            names_data = json.load(f)
+            names_data = json.load(f, encoding='utf-8')
+            self.native_language = names_data['native_language']
+            self.languages = set(names_data['languages'])
             for name_data in names_data['names']:
-                self.names_list.append(Name(names_data['native_language'], name_data))
+                self.names_list.append(Name(self.native_language, name_data))
 
         if not self.names_list:
             raise PynamesException('FromListGenerator: no names loaded from "%s"' % self.SOURCE)
@@ -33,18 +36,23 @@ class FromListGenerator(BaseGenerator):
         key = self._get_cache_key(genders)
         genders = frozenset(genders)
         if key not in self.choices:
-            self.choices[key] = [name_record 
-                                 for name_record in self.names_list 
+            self.choices[key] = [name_record
+                                 for name_record in self.names_list
                                  if name_record.exists_for(genders)]
         return self.choices[key]
 
-    def get_names_number(self, genders=GENDER.ALL): 
+    def get_names_number(self, genders=GENDER.ALL):
         return len(self._get_slice(genders))
 
-    def get_name(self, genders=GENDER.ALL): 
+    def get_name(self, genders=GENDER.ALL):
         return random.choice(self._get_slice(genders))
 
-    def get_name_simple(self, gender=GENDER.MALE, language=LANGUAGE.NATIVE): 
+    def get_name_simple(self, gender=GENDER.MALE, language=LANGUAGE.NATIVE):
         name = self.get_name(genders=[gender])
         return name.get_for(gender, language)
 
+    def test_names_consistency(self, test):
+        for name in self.names_list:
+            for gender in GENDER.ALL:
+                if gender in name.translations:
+                    test.assertEqual(set(name.translations[gender].keys()) & self.languages, self.languages)

@@ -59,6 +59,8 @@ def create_test_method(generator_class):
         self.assertTrue(generator.get_name_simple())
         self.assertTrue(generator.get_name())
 
+        generator.test_names_consistency(self)
+
     test_method.__name__ = 'test_%s' % generator.__name__
 
     return test_method

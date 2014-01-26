@@ -1,8 +1,9 @@
 {
     "source": "http://www.gaminggeeks.org/Resources/KateMonk/",
     "translation": "Wizard-worker and Swingaroo",
-    "native_language": "ru",
-    "names": [ 
+    "native_language": "en",
+    "languages": ["en", "ru"],
+    "names": [
                {"genders": {"m": {"en": "Adalbrikt", "ru": "Адалбрикт", "ru_ext": "Адалбрикт"}}},
                {"genders": {"m": {"en": "Adalradr", "ru": "Адалрадр", "ru_ext": "Адалрадр"}}},
                {"genders": {"m": {"en": "Adalstein", "ru": "Адалстейн", "ru_ext": "Адалстėн"}}},
@@ -12,10 +13,10 @@
                {"genders": {"m": {"en": "Aflaeg", "ru": "Афлаег", "ru_ext": "Афлäг"}}},
                {"genders": {"m": {"en": "Agder", "ru": "Агдер", "ru_ext": "Агдер"}}},
                {"genders": {"m": {"en": "Agdir", "ru": "Агдир", "ru_ext": "Агдир"}}},
-               {"genders": {"m": {"en": "Agger", "ru": "Аггер", "ru_ext": "Аггер"}}},            
+               {"genders": {"m": {"en": "Agger", "ru": "Аггер", "ru_ext": "Аггер"}}},
                {"genders": {"m": {"en": "Agmund", "ru": "Агмунд", "ru_ext": "Агмунд"}}},
                {"genders": {"m": {"en": "Agmundr", "ru": "Агмундр", "ru_ext": "Агмундр"}}},
- 		{"genders": {"m": {"en": "Anulo", "ru": "Ануло", "ru_ext": "Ануло"}}},
+ 	       {"genders": {"m": {"en": "Anulo", "ru": "Ануло", "ru_ext": "Ануло"}}},
                {"genders": {"m": {"en": "Agnarr", "ru": "Агнарр", "ru_ext": "Агнарр"}}},
                {"genders": {"m": {"en": "Alaf", "ru": "Алаф", "ru_ext": "Алаф"}}},
                {"genders": {"m": {"en": "Aleifr", "ru": "Алейфр", "ru_ext": "Алėфр"}}},
@@ -73,7 +74,7 @@
                {"genders": {"m": {"en": "AbjГёrn", "ru": "Абгёрн", "ru_ext": "Абгёрн"}}},
                {"genders": {"m": {"en": "Asbrand", "ru": "Асбранд", "ru_ext": "Асбранд"}}},
                {"genders": {"m": {"en": "Asfrith", "ru": "Асфрит", "ru_ext": "Асфриѳ"}}},
-               {"genders": {"m": {"en": "Asgaut"}, "ru": "Асгаут", "ru_ext": "Асгáт"}},
+               {"genders": {"m": {"en": "Asgaut", "ru": "Асгаут", "ru_ext": "Асгáт"}}},
                {"genders": {"m": {"en": "Asgautr", "ru": "Асгаутр", "ru_ext": "Асгáтр"}}},
                {"genders": {"m": {"en": "Asgeir", "ru": "Асгейр", "ru_ext": "Асгėр"}}},
                {"genders": {"m": {"en": "Asgeirr", "ru": "Асгейрр", "ru_ext": "Асгėрр"}}},
@@ -960,7 +961,7 @@
 		{"genders": {"f": {"en": "Alkai", "ru": "Алкаи", "ru_ext": "Алкаї"}}},
                {"genders": {"f": {"en": "Alphege", "ru": "Алфеге", "ru-ext": "Алфеге"}}},
                {"genders": {"f": {"en": "Amunde", "ru": "Амунде", "ru-ext": "Амунде"}}},
-               {"genders": {"f": {"en": "Amundi", "ru": "Амунди", "ru-ext": "Амунди"}}},              
+               {"genders": {"f": {"en": "Amundi", "ru": "Амунди", "ru-ext": "Амунди"}}},
                {"genders": {"f": {"en": "Api", "ru": "Апи", "ru-ext": "Апи"}}},
                {"genders": {"f": {"en": "Arne", "ru": "Арне", "ru-ext": "Арне"}}},
                {"genders": {"f": {"en": "Arni", "ru": "Арни", "ru-ext": "Арни"}}},
@@ -1230,8 +1231,4 @@
                {"genders": {"f": {"en": "Vidfari", "ru": "Видфари", "ru-ext": "Видфари"}}},
                {"genders": {"f": {"en": "Viglei", "ru": "Виглей", "ru-ext": "Виглė"}}},
                {"genders": {"f": {"en": "Vili", "ru": "Вили", "ru-ext": "Вили"}}}]
-
-
 }
-
-

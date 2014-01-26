@@ -1,5 +1,6 @@
 {
     "native_language": "ru",
+    "languages": ["ru"],
     "names": [ {"genders": {"m": {"ru": "ru_m_name_1",
                                   "en": "en_m_name_1"}}},
 

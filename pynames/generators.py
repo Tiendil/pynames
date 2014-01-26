@@ -1,23 +1,10 @@
 # coding: utf-8
 
+from pynames.relations import GENDER, LANGUAGE
+
+
 class PynamesException(Exception):
     pass
-
-
-class GENDER:
-    MALE = 'm'
-    FEMALE = 'f'
-    MF = ['m', 'f']
-
-    ALL = ['m', 'f']
-
-
-class LANGUAGE:
-    RU = 'ru'
-    EN = 'en'
-    NATIVE = 'native'
-
-    ALL = ['ru', 'en', 'native']
 
 
 class BaseGenerator(object):
@@ -45,7 +32,7 @@ class Name(object):
         for gender in GENDER.ALL:
             if gender in self.genders:
                 return self.translations[gender][self.native_language]
-        error_msg = 'Name: can not get default value for name with data: %r' % self.genders
+        error_msg = u'Name: can not get default value for name with data: %r' % self.genders
         raise PynamesException(error_msg)
 
     def __str__(self): return self.__unicode__()

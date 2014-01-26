@@ -1,6 +1,7 @@
 {
     "source": "Wizard-worker",
     "native_language": "ru",
+    "languages": ["ru"],
     "names": [ {"genders": {"m": {"ru": "Ахн"}}},
                {"genders": {"m": {"ru": "Ахер"}}},
                {"genders": {"m": {"ru": "Авех"}}},
@@ -218,7 +219,7 @@
                {"genders": {"m": {"ru": "Хрох"}}},
                {"genders": {"m": {"ru": "Хген"}}},
                {"genders": {"m": {"ru": "Хсухон"}}},
-             
+
 
                {"genders": {"f": {"ru": "Атта"}}},
                {"genders": {"f": {"ru": "Асса"}}},
@@ -465,5 +466,3 @@
                {"genders": {"f": {"ru": "Шушша"}}}
              ]
 }
-
-

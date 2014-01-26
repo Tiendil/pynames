@@ -1,6 +1,7 @@
 {
     "source": "http://paganism.msk.ru/name/name.htm",
     "native_language": "ru",
+    "languages": ["ru"],
     "names": [ {"genders": {"m": {"ru": "Бажен"}, "f": {"ru": "Бажена"}}},
                {"genders": {"m": {"ru": "Белослав"}, "f": {"ru": "Белослава"}}},
                {"genders": {"m": {"ru": "Беримир"}}},
