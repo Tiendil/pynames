@@ -6,9 +6,16 @@ import unittest
 
 import pynames
 
-from pynames.generators import BaseGenerator, GENDER
+from pynames.relations import GENDER
+from pynames.base import BaseGenerator
 from pynames.from_list_generator import FromListGenerator
 from pynames.from_tables_generator import FromTablesGenerator
+
+
+# TODO: test forms:
+#       - parameter, that declared, for which language forms specified
+#       - how many items in forms (12 for russian)
+
 
 def get_all_generators():
 

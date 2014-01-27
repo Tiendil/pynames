@@ -1,0 +1,28 @@
+{
+    "native_language": "ru",
+    "languages": ["ru"],
+    "names": [ {"genders": {"m": {"ru": ["ru_m_name_1", "ru_m_name_1__form"],
+                                  "en": "en_m_name_1"}}},
+
+               {"genders": {"f": {"ru": ["ru_f_name_2", "ru_f_name_2__form"],
+                                  "en": "en_f_name_2"}}},
+
+               {"genders": {"f": {"ru": ["ru_f_name_3", "ru_f_name_3__form"],
+                                  "en": "en_f_name_3"}}},
+
+               {"genders": {"m": {"ru": ["ru_m_name_4", "ru_m_name_4__form"],
+                                  "en": "en_m_name_4"},
+                            "f": {"ru": ["ru_f_name_4", "ru_f_name_4__form"],
+                                  "en": "en_f_name_4"}}},
+
+               {"genders": {"m": {"ru": ["ru_m_name_5", "ru_m_name_5__form"],
+                                  "en": "en_m_name_5"},
+                            "f": {"ru": ["ru_f_name_5", "ru_f_name_5__form"],
+                                  "en": "en_f_name_5"}}},
+
+               {"genders": {"m": {"ru": ["ru_m_name_5", "ru_m_name_5__form"],
+                                  "en": "en_m_name_5"},
+                            "f": {"ru": ["ru_f_name_5", "ru_f_name_5__form"],
+                                  "en": "en_f_name_5"}}}
+             ]
+}

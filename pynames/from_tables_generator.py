@@ -2,7 +2,10 @@
 import json
 import random
 
-from .generators import GENDER, LANGUAGE, Name, BaseGenerator, PynamesException
+from pynames.relations import GENDER, LANGUAGE
+from pynames.names import Name
+from pynames.base import BaseGenerator
+from pynames import exceptions
 
 
 class Template(object):
@@ -26,13 +29,29 @@ class Template(object):
             number *= len(tables[slug])
         return number
 
+    @classmethod
+    def merge_forms(cls, left, right):
+        if not isinstance(left, basestring):
+            if not isinstance(right, basestring):
+                if len(left) != len(right):
+                    raise exceptions.NotEqualFormsLengths(left=left, right=right)
+                return [l+r for l, r in zip(left, right)]
+            else:
+                return [l+right for l in left]
+        else:
+            if not isinstance(right, basestring):
+                return [left+r for r in right]
+            else:
+                return left + right
+
     def get_name(self, tables):
         languages = dict( (lang, u'') for lang in self.languages)
         for slug in self.template:
             record = random.choice(tables[slug])
-            for lang in languages:
-                languages[lang] += record['languages'][lang]
+            languages = { lang:self.merge_forms(forms, record['languages'][lang]) for lang, forms in languages.iteritems()}
+
         genders = dict( (gender, languages) for gender in self.genders)
+
         return Name(self.native_language, {'genders': genders})
 
 
@@ -92,7 +111,7 @@ class FromTablesGenerator(BaseGenerator):
                 continue
             return template.get_name(self.tables)
 
-        raise PynamesException('FromTablesGenerator: wrong template structure - cannot choose template for genders %r with template source: "%s"' % (genders, self.SOURCE) )
+        raise exceptions.WrongTemplateStructureError(genders=genders, soruce=self.SOURCE)
 
     def get_name_simple(self, gender=GENDER.MALE, language=LANGUAGE.NATIVE):
         name = self.get_name(genders=[gender])

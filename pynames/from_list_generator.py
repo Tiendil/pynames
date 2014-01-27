@@ -2,7 +2,10 @@
 import json
 import random
 
-from .generators import GENDER, LANGUAGE, Name, BaseGenerator, PynamesException
+from pynames.relations import GENDER, LANGUAGE
+from pynames.names import Name
+from pynames.base import BaseGenerator
+from pynames import exceptions
 
 class FromListGenerator(BaseGenerator):
 
@@ -26,7 +29,7 @@ class FromListGenerator(BaseGenerator):
                 self.names_list.append(Name(self.native_language, name_data))
 
         if not self.names_list:
-            raise PynamesException('FromListGenerator: no names loaded from "%s"' % self.SOURCE)
+            raise exceptions.NoNamesLoadedFromListError(source=self.SOURCE)
 
     @staticmethod
     def _get_cache_key(genders):

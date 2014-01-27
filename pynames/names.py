@@ -1,14 +1,7 @@
 # coding: utf-8
 
 from pynames.relations import GENDER, LANGUAGE
-
-
-class PynamesException(Exception):
-    pass
-
-
-class BaseGenerator(object):
-    pass
+from pynames import exceptions
 
 
 class Name(object):
@@ -21,9 +14,27 @@ class Name(object):
         self.translations = data['genders']
 
     def get_for(self, gender, language=LANGUAGE.NATIVE):
+
         if language == LANGUAGE.NATIVE:
             language = self.native_language
-        return self.translations[gender][language]
+
+        forms = self.translations[gender][language]
+
+        if not isinstance(forms, basestring):
+            return forms[0]
+
+        return forms
+
+    def get_forms_for(self, gender, language=LANGUAGE.NATIVE):
+        if language == LANGUAGE.NATIVE:
+            language = self.native_language
+
+        forms = self.translations[gender][language]
+
+        if not isinstance(forms, basestring):
+            return forms
+
+        return None
 
     def exists_for(self, genders):
         return genders & self.genders
@@ -32,7 +43,6 @@ class Name(object):
         for gender in GENDER.ALL:
             if gender in self.genders:
                 return self.translations[gender][self.native_language]
-        error_msg = u'Name: can not get default value for name with data: %r' % self.genders
-        raise PynamesException(error_msg)
+        raise exceptions.PynamesException(raw_data=self.genders)
 
     def __str__(self): return self.__unicode__()

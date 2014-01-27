@@ -19,7 +19,7 @@
                 "table2": [{"languages": {"en": "_m_en_1", "ru": "_m_ru_1"}},
                            {"languages": {"en": "_m_en_2", "ru": "_m_ru_2"}}],
 
-                "table3": [{"languages": {"en": "_f_en_1", "ru": "_f_ru_1"}}],
+                "table3": [{"languages": {"en": "_f_en_1", "ru": ["_f_ru_1", "_f_ru_1_form"]}}],
 
                 "table4": [{"languages": {"en": "'", "ru": "'"}}]}
 }
