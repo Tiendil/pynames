@@ -6,4 +6,4 @@ import pynames.scandinavian
 import pynames.korean
 import pynames.russian
 
-from pynames.generators import GENDER, LANGUAGE
+from pynames.relations import GENDER, LANGUAGE
