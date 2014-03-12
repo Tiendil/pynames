@@ -2,7 +2,7 @@
 import json
 import random
 
-from pynames.relations import GENDER, LANGUAGE
+from pynames.relations import GENDER, LANGUAGE, LANGUAGE_FORMS_LANGTH
 from pynames.names import Name
 from pynames.base import BaseGenerator
 from pynames import exceptions
@@ -73,6 +73,7 @@ class FromTablesGenerator(BaseGenerator):
             data = json.load(f)
             self.native_language = data['native_language']
             self.languages = set(data['languages'])
+            self.full_forms_for_languages = set(data.get('full_forms_for_languages', set()))
             self.templates = [ Template(template_name, self.native_language, self.languages, template_data)
                                for template_name, template_data in data['templates'].items() ]
             self.tables = data['tables']
@@ -121,3 +122,10 @@ class FromTablesGenerator(BaseGenerator):
         for table_name, table in self.tables.iteritems():
             for record in table:
                 test.assertEqual(set(record['languages'].keys()) & self.languages, self.languages)
+
+        for template in self.templates:
+            last_table = template.template[-1]
+            for language in self.full_forms_for_languages:
+                for record in self.tables[last_table]:
+                    test.assertTrue(isinstance(record['languages'][language], list))
+                    test.assertEqual(len(record['languages'][language]), LANGUAGE_FORMS_LANGTH[language])

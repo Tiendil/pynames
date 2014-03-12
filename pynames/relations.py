@@ -14,3 +14,6 @@ class LANGUAGE:
     NATIVE = 'native'
 
     ALL = ['ru', 'en', 'native']
+
+
+LANGUAGE_FORMS_LANGTH = {LANGUAGE.RU: 12}

@@ -2,7 +2,7 @@
 import json
 import random
 
-from pynames.relations import GENDER, LANGUAGE
+from pynames.relations import GENDER, LANGUAGE, LANGUAGE_FORMS_LANGTH
 from pynames.names import Name
 from pynames.base import BaseGenerator
 from pynames import exceptions
@@ -25,6 +25,7 @@ class FromListGenerator(BaseGenerator):
             names_data = json.load(f, encoding='utf-8')
             self.native_language = names_data['native_language']
             self.languages = set(names_data['languages'])
+            self.full_forms_for_languages = set(names_data.get('full_forms_for_languages', set()))
             for name_data in names_data['names']:
                 self.names_list.append(Name(self.native_language, name_data))
 
@@ -55,7 +56,14 @@ class FromListGenerator(BaseGenerator):
         return name.get_for(gender, language)
 
     def test_names_consistency(self, test):
+        # "full_forms_for_languages": ["ru"],
         for name in self.names_list:
             for gender in GENDER.ALL:
                 if gender in name.translations:
+                    # print name.translations[gender]
                     test.assertEqual(set(name.translations[gender].keys()) & self.languages, self.languages)
+
+                    for language in self.full_forms_for_languages:
+                        # print name.translations[gender][language]
+                        test.assertTrue(isinstance(name.translations[gender][language], list))
+                        test.assertEqual(len(name.translations[gender][language]), LANGUAGE_FORMS_LANGTH[language])
