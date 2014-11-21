@@ -32,7 +32,7 @@ class Name(object):
         forms = self.translations[gender][language]
 
         if not isinstance(forms, basestring):
-            return forms
+            return list(forms)
 
         return None
 
