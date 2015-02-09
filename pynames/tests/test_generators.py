@@ -9,7 +9,7 @@ import pynames
 from pynames.relations import GENDER
 from pynames.base import BaseGenerator
 from pynames.from_list_generator import FromListGenerator
-from pynames.from_tables_generator import FromTablesGenerator
+from pynames.from_tables_generator import FromTablesGenerator, FromCSVTablesGenerator
 
 
 # TODO: test forms:
@@ -42,7 +42,7 @@ def get_all_generators():
             if not isinstance(generator, type) or not issubclass(generator, BaseGenerator):
                 continue
 
-            if generator in (FromTablesGenerator, FromListGenerator):
+            if generator in (FromTablesGenerator, FromListGenerator, FromCSVTablesGenerator):
                 continue
 
             generators.append(generator)
