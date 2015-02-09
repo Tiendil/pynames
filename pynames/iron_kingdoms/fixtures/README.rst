@@ -1,5 +1,5 @@
 
-IK_gobber_names_*.csv is a dataset for IronKingdoms gobber names.
+``IK_*_names_tables.csv`` and ``IK_*_names_tempaltes.csv`` files hold dataset for IronKingdoms names.
 
 Iron Kingdoms and other names are property of Privateer Press
 

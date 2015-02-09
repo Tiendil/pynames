@@ -291,3 +291,5 @@ class FromCSVTablesGenerator(FromTablesGenerator):
                     table_item['languages'][language] = slug
 
                 self.tables.setdefault(slug, []).append(table_item)
+
+        self.full_forms_for_languages = set()
