@@ -174,7 +174,7 @@ class FromCSVTablesGenerator(FromTablesGenerator):
 
     """
 
-    def source_loader(self, source_paths):
+    def source_loader(self, source_paths, create_missing_tables=True):
         """Load source from 3 csv files.
 
         First file should contain global settings:
@@ -226,7 +226,17 @@ class FromCSVTablesGenerator(FromTablesGenerator):
         self.templates = []
         self.tables = {}
 
-        with open(source_paths[0]) as settings_file:
+        self.load_settings(source_paths[0])
+        template_slugs = self.load_templates(source_paths[1])
+        self.load_tables(source_paths[2])
+
+        if create_missing_tables:
+            self.create_missing_tables(template_slugs)
+
+        self.full_forms_for_languages = set()
+
+    def load_settings(self, settings_source):
+        with open(settings_source) as settings_file:
             reader = unicodecsv.DictReader(settings_file, encoding='utf-8')
             for row in reader:
                 new_native_language = row.get('native_language', '').strip()
@@ -244,9 +254,10 @@ class FromCSVTablesGenerator(FromTablesGenerator):
                     self.languages.append(new_language)
         self.languages = set(self.languages)
 
+    def load_templates(self, templates_source):
         template_slugs = []
 
-        with open(source_paths[1]) as templates_file:
+        with open(templates_source) as templates_file:
             reader = unicodecsv.DictReader(templates_file, encoding='utf-8')
             for row in reader:
                 template_data = {
@@ -260,8 +271,10 @@ class FromCSVTablesGenerator(FromTablesGenerator):
                 template_slugs.extend(template_data['template'])
 
         template_slugs = set(template_slugs)
+        return template_slugs
 
-        with open(source_paths[2]) as tables_file:
+    def load_tables(self, tables_source):
+        with open(tables_source) as tables_file:
             reader = unicodecsv.DictReader(tables_file, encoding='utf-8')
             slugs = set([fieldname.split(':')[0] for fieldname in reader.fieldnames])
             for slug in slugs:
@@ -285,7 +298,9 @@ class FromCSVTablesGenerator(FromTablesGenerator):
                             )
                     if table_item:
                         self.tables[slug].append(table_item)
+        return
 
+    def create_missing_tables(self, template_slugs):
         for slug in template_slugs:
             if not self.tables.get(slug, ''):
                 table_item = {'languages': {}}
@@ -293,5 +308,3 @@ class FromCSVTablesGenerator(FromTablesGenerator):
                     table_item['languages'][language] = slug
 
                 self.tables.setdefault(slug, []).append(table_item)
-
-        self.full_forms_for_languages = set()
