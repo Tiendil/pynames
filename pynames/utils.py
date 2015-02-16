@@ -41,3 +41,12 @@ def get_all_generators():
             generators.append(generator)
 
     return generators
+
+
+def is_file(obj):
+    """Retrun True is object has 'next', '__enter__' and '__exit__' methods.
+
+    Suitable to check both builtin ``file`` and ``django.core.file.File`` instances.
+
+    """
+    return all([callable(getattr(obj, method_name, None)) for method_name in ('next', '__enter__', '__exit__')])
