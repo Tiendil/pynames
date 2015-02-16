@@ -5,12 +5,12 @@ import importlib
 
 import pynames
 
-from pynames.base import BaseGenerator
-from pynames.from_list_generator import FromListGenerator
-from pynames.from_tables_generator import FromTablesGenerator, FromCSVTablesGenerator
-
 
 def get_all_generators():
+
+    from pynames.base import BaseGenerator
+    from pynames.from_list_generator import FromListGenerator
+    from pynames.from_tables_generator import FromTablesGenerator, FromCSVTablesGenerator
 
     submodules = []
 
