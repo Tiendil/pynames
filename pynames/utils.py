@@ -49,4 +49,8 @@ def is_file(obj):
     Suitable to check both builtin ``file`` and ``django.core.file.File`` instances.
 
     """
-    return all([callable(getattr(obj, method_name, None)) for method_name in ('next', '__enter__', '__exit__')])
+    return all(
+        [callable(getattr(obj, method_name, None)) for method_name in ('__enter__', '__exit__')]
+        +
+        [any([callable(getattr(obj, method_name, None)) for method_name in ('next', '__iter__')])]
+    )
