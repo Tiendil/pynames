@@ -1,0 +1,3 @@
+template_name,probability,genders,template
+fullname_male,1,m,male_firstname; ;surname
+fullname_female,1,f,female_firstname; ;surname

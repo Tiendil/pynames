@@ -12,6 +12,7 @@ setuptools.setup(
     description = "characters' name generation library",
     long_description = open('README.md').read(),
     include_package_data = True, # setuptools-git MUST be installed
-    test_suite = 'tests'# ,
+    test_suite = 'tests',
+    install_requires = ['unicodecsv'],
     # package_data = { '': ['*.json'] }
 )

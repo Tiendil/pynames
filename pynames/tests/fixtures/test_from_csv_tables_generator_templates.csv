@@ -1,0 +1,4 @@
+template_name,probability,genders,template
+t1,2,m,table1;table2
+t2,2,f,table1;table3
+t3,1,m;f,table1;table2;table4;table3

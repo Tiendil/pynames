@@ -4,7 +4,7 @@ import os
 import unittest
 
 from pynames.relations import GENDER, LANGUAGE
-from pynames.from_tables_generator import FromTablesGenerator
+from pynames.from_tables_generator import FromTablesGenerator, FromCSVTablesGenerator
 
 FIXTURES_DIR = os.path.join(os.path.dirname(__file__), 'fixtures')
 
@@ -91,3 +91,38 @@ class TestFromTablesGenerator(unittest.TestCase):
             name = generator.get_name(genders=[GENDER.FEMALE])
             self.assertTrue(name.get_for(GENDER.FEMALE, LANGUAGE.EN) in self.NAMES_EN_FEMALE)
             self.assertEqual(name.get_forms_for(GENDER.FEMALE, LANGUAGE.EN), None)
+
+
+class TestFromCSVTablesGenerator(unittest.TestCase):
+
+    class TestJSONGenerator(FromTablesGenerator):
+        SOURCE = os.path.join(FIXTURES_DIR, 'test_from_tables_generator.json')
+
+    class TestCSVGenerator(FromCSVTablesGenerator):
+        SOURCE = [
+            os.path.join(FIXTURES_DIR, 'test_from_csv_tables_generator_settings.csv'),
+            os.path.join(FIXTURES_DIR, 'test_from_csv_tables_generator_templates.csv'),
+            os.path.join(FIXTURES_DIR, 'test_from_csv_tables_generator_tables.csv')
+        ]
+
+    def test_init_state_equal(self):
+        """test that after init CSV and JSON generators have equal 'native_language', 'languages', 'templates', 'tables' attrubytes.
+
+        This is the only test needed because if state after init is the same then
+        behaviour is the same.
+
+        """
+        json_generator = self.TestJSONGenerator()
+        csv_generator = self.TestCSVGenerator()
+
+        for attr_name in ['native_language', 'languages', 'templates', 'tables']:
+            try:
+                json_attr = getattr(json_generator, attr_name)
+                csv_attr = getattr(csv_generator, attr_name)
+                if isinstance(json_attr, list):
+                    self.assertItemsEqual(csv_attr, json_attr)
+                else:
+                    self.assertEqual(csv_attr, json_attr)
+            except Exception:
+                from nose.tools import set_trace; set_trace()
+                raise

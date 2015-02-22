@@ -1,15 +1,9 @@
 # coding: utf-8
 
-import os
-import importlib
 import unittest
 
-import pynames
-
 from pynames.relations import GENDER
-from pynames.base import BaseGenerator
-from pynames.from_list_generator import FromListGenerator
-from pynames.from_tables_generator import FromTablesGenerator
+from pynames.utils import get_all_generators
 
 
 # TODO: test forms:
@@ -17,43 +11,8 @@ from pynames.from_tables_generator import FromTablesGenerator
 #       - how many items in forms (12 for russian)
 
 
-def get_all_generators():
-
-    submodules = []
-
-    root_dir = os.path.dirname(pynames.__file__)
-
-    for dirname in os.listdir(root_dir):
-        module_path = os.path.join(root_dir, dirname)
-        if not os.path.isdir(module_path):
-            continue
-
-        try:
-            module_name = 'pynames.%s' % dirname
-            module = importlib.import_module(module_name)
-            submodules.append(module)
-        except Exception:
-            continue
-
-    generators = []
-
-    for module in submodules:
-        for generator in module.__dict__.values():
-            if not isinstance(generator, type) or not issubclass(generator, BaseGenerator):
-                continue
-
-            if generator in (FromTablesGenerator, FromListGenerator):
-                continue
-
-            generators.append(generator)
-
-    return generators
-
-
-
 class TestGenerators(unittest.TestCase):
     pass
-
 
 
 def create_test_method(generator_class):

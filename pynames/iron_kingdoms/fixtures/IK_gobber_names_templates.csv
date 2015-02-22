@@ -1,0 +1,3 @@
+template_name,probability,genders,template
+gobber_male,1,m,gobber_first_name_male;-;gobber_first_name_female;-;gobber_first_name_male;-;gobber_descriptive
+gobber_male,1,f,gobber_first_name_female;-;gobber_first_name_female;-;gobber_first_name_male;-;gobber_descriptive

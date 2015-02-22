@@ -1,0 +1,5 @@
+template_name,probability,genders,template
+fullname_male_1,7,m,male_firstname; ;surname
+fullname_male_2,3,m,male_firstname; ;khadoran_surname_traditional
+fullname_female_1,7,f,female_firstname; ;surname
+fullname_female_2,3,f,female_firstname; ;khadoran_surname_traditional
