@@ -84,3 +84,34 @@ Out[12]: frozenset([u'f']) # all genders
 * pynames.russian.PaganNamesGenerator
 * pynames.scandinavian.ScandinavianNamesGenerator
 
+
+Можно получить список всех классов генераторов следующим образом:
+
+```python
+In [1]: from pynames.utils import get_all_generators
+
+In [2]: get_all_generators()
+Out[2]:
+[pynames.elven.DnDNamesGenerator,
+ pynames.elven.WarhammerNamesGenerator,
+ pynames.iron_kingdoms.OgrunFullnameGenerator,
+ pynames.iron_kingdoms.ThurianMorridaneFullnameGenerator,
+ pynames.iron_kingdoms.TordoranFullnameGenerator,
+ pynames.iron_kingdoms.RynFullnameGenerator,
+ pynames.iron_kingdoms.KhadoranFullnameGenerator,
+ pynames.iron_kingdoms.ThurianMorridaneFullnameGenerator,
+ pynames.iron_kingdoms.TrollkinFullnameGenerator,
+ pynames.iron_kingdoms.IossanNyssFullnameGenerator,
+ pynames.iron_kingdoms.CaspianMidlunderSuleseFullnameGenerator,
+ pynames.iron_kingdoms.GobberFullnameGenerator,
+ pynames.iron_kingdoms.ThurianMorridaneFullnameGenerator,
+ pynames.iron_kingdoms.DwarfFullnameGenerator,
+ pynames.russian.PaganNamesGenerator,
+ pynames.orc.OrcNamesGenerator,
+ pynames.scandinavian.ScandinavianNamesGenerator,
+ pynames.korean.KoreanNamesGenerator,
+ pynames.mongolian.MongolianNamesGenerator,
+ pynames.goblin.GoblinGenerator,
+ pynames.iron_kingdoms.GobberFullnameGenerator,
+ pynames.korean.KoreanNamesGenerator]
+```
