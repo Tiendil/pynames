@@ -1,4 +1,4 @@
-# PYNAMES - библиотека для генерации имён 
+# PYNAMES - библиотека для генерации имён
 
 **Name generation library - [see English description here](https://github.com/Tiendil/pynames/wiki/EN_README)**
 
@@ -22,10 +22,10 @@ elven_generator = DnDNamesGenerator()
 количество различных имён (мужских и женских) и для каждого пола в отдельности
 
 ```python
-In [4]: elven_generator.get_names_number() 
+In [4]: elven_generator.get_names_number()
 Out[4]: 1952949936
 
-In [5]: elven_generator.get_names_number(GENDER.MALE) 
+In [5]: elven_generator.get_names_number(GENDER.MALE)
 Out[5]: 976474968
 
 In [6]: elven_generator.get_names_number(GENDER.FEMALE)
@@ -35,10 +35,10 @@ Out[6]: 976474968
 Быстрое получение просто случайного имени
 
 ```python
-In [7]: elven_generator.get_name_simple() 
+In [7]: elven_generator.get_name_simple()
 Out[7]: u'Elineer'
 
-In [8]: elven_generator.get_name_simple(GENDER.MALE) 
+In [8]: elven_generator.get_name_simple(GENDER.MALE)
 Out[8]: u'Caslithdar'
 
 In [9]: elven_generator.get_name_simple(GENDER.MALE, LANGUAGE.EN) # English transcription
@@ -48,7 +48,7 @@ Out[9]: u'Mararon'
 вместо текста можно получить объект имени с подробной информацией
 
 ```python
-In [10]: name = elven_generator.get_name()  
+In [10]: name = elven_generator.get_name()
 
 In [11]: name.translations
 Out[11]: {u'f': {u'en': u"mil'Jashoreti"}} # all transcriptions
@@ -64,9 +64,23 @@ Out[12]: frozenset([u'f']) # all genders
 
 Сущестующие генераторы:
 
-* pynames.russian.PaganNamesGenerator
+* pynames.elven.DnDNamesGenerator
+* pynames.elven.WarhammerNamesGenerator
+* pynames.goblin.GobberFullnameGenerator
+* pynames.goblin.GoblinGenerator
+* pynames.iron_kingdoms.CaspianMidlunderSuleseFullnameGenerator
+* pynames.iron_kingdoms.DwarfFullnameGenerator
+* pynames.iron_kingdoms.GobberFullnameGenerator == pynames.goblin.GobberFullnameGenerator
+* pynames.iron_kingdoms.IossanNyssFullnameGenerator
+* pynames.iron_kingdoms.KhadoranFullnameGenerator
+* pynames.iron_kingdoms.OgrunFullnameGenerator
+* pynames.iron_kingdoms.RynFullnameGenerator
+* pynames.iron_kingdoms.ThurianMorridaneFullnameGenerator
+* pynames.iron_kingdoms.TordoranFullnameGenerator
+* pynames.iron_kingdoms.TrollkinFullnameGenerator
 * pynames.korean.KoreanNamesGenerator
 * pynames.mongolian.MongolianNamesGenerator
+* pynames.orc.OrcNamesGenerator
+* pynames.russian.PaganNamesGenerator
 * pynames.scandinavian.ScandinavianNamesGenerator
-* pynames.elven.WarhammerNamesGenerator
-* pynames.elven.DnDNamesGenerator
+
