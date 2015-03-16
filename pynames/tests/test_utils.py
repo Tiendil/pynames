@@ -1,9 +1,11 @@
 # coding: utf-8
 
-import unittest
+import os
 import tempfile
+import unittest
 
-from pynames.utils import is_file
+from pynames.utils import is_file, file_adapter
+import pynames
 
 try:
     from django.core.files import File
@@ -27,3 +29,21 @@ class TestName(unittest.TestCase):
             self.assertTrue(is_file(UploadedFile('mock')))
             self.assertTrue(is_file(File('mock')))
             self.assertTrue(is_file(ContentFile('mock')))
+
+    def test_file_dapter(self):
+        root_dir = os.path.dirname(pynames.__file__)
+
+        test_file_path = os.path.join(root_dir, 'tests', 'fixtures', 'test_from_list_generator.json')
+
+        with open(test_file_path) as f:
+            target_content = f.read()
+
+        with file_adapter(test_file_path) as f:
+            self.assertEqual(f.read(), target_content)
+
+        django_file_object = ContentFile(target_content)
+        classic_file_object = open(test_file_path, 'r')
+
+        for tested_file_object in [django_file_object, classic_file_object]:
+            with file_adapter(tested_file_object) as f:
+                self.assertEqual(f.read(), target_content)

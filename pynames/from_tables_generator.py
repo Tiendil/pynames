@@ -13,7 +13,7 @@ from pynames import exceptions
 from pynames.base import BaseGenerator
 from pynames.names import Name
 from pynames.relations import GENDER, LANGUAGE, LANGUAGE_FORMS_LANGTH
-from pynames.utils import is_file
+from pynames.utils import file_adapter
 
 
 class Template(object):
@@ -104,7 +104,7 @@ class FromTablesGenerator(BaseGenerator):
             error_msg = 'FromTablesGenerator: you must make subclass of FromTablesGenerator and define attribute SOURCE in it.'
             raise NotImplementedError(error_msg)
 
-        with open(source) as f:
+        with file_adapter(source) as f:
             data = json.load(f)
             self.native_language = data['native_language']
             self.languages = set(data['languages'])
@@ -237,7 +237,7 @@ class FromCSVTablesGenerator(FromTablesGenerator):
         self.full_forms_for_languages = set()
 
     def load_settings(self, settings_source):
-        with (settings_source if is_file(settings_source) else open(settings_source)) as settings_file:
+        with file_adapter(settings_source) as settings_file:
             reader = unicodecsv.DictReader(settings_file, encoding='utf-8')
             for row in reader:
                 new_native_language = row.get('native_language', '').strip()
@@ -258,7 +258,7 @@ class FromCSVTablesGenerator(FromTablesGenerator):
     def load_templates(self, templates_source):
         template_slugs = []
 
-        with (templates_source if is_file(templates_source) else open(templates_source)) as templates_file:
+        with file_adapter(templates_source) as templates_file:
             reader = unicodecsv.DictReader(templates_file, encoding='utf-8')
             for row in reader:
                 template_data = {
@@ -275,7 +275,7 @@ class FromCSVTablesGenerator(FromTablesGenerator):
         return template_slugs
 
     def load_tables(self, tables_source):
-        with (tables_source if is_file(tables_source) else open(tables_source)) as tables_file:
+        with file_adapter(tables_source) as tables_file:
             reader = unicodecsv.DictReader(tables_file, encoding='utf-8')
             slugs = set([fieldname.split(':')[0] for fieldname in reader.fieldnames])
             for slug in slugs:
