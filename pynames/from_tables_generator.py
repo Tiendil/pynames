@@ -89,15 +89,13 @@ class Template(object):
 class FromTablesGenerator(BaseGenerator):
 
     SOURCE = None
-    AUTOLOAD = True  # you may want to set ``AUTOLOAD = False`` when subclassing table-based generator to skip soruce loading on init
 
     def __init__(self):
         super(FromTablesGenerator, self).__init__()
         self.templates_choices = {}
         self.templates = []
         self.tables = {}
-        if self.AUTOLOAD:
-            self.source_loader(self.SOURCE)
+        self.source_loader(self.SOURCE)
 
     def source_loader(self, source):
         if source is None:
