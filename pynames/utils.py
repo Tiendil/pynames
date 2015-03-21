@@ -1,7 +1,8 @@
 # coding: utf-8
 
-import os
+import contextlib
 import importlib
+import os
 
 import pynames
 
@@ -54,3 +55,14 @@ def is_file(obj):
         +
         [any([callable(getattr(obj, method_name, None)) for method_name in ('next', '__iter__')])]
     )
+
+
+@contextlib.contextmanager
+def file_adapter(file_or_path):
+    """Context manager that works similar to ``open(file_path)``but also accepts already openned file-like objects."""
+    if is_file(file_or_path):
+        file_obj = file_or_path
+    else:
+        file_obj = open(file_or_path)
+    yield file_obj
+    file_obj.close()
