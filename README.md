@@ -43,18 +43,36 @@ Out[8]: u'Caslithdar'
 
 In [9]: elven_generator.get_name_simple(GENDER.MALE, LANGUAGE.EN) # English transcription
 Out[9]: u'Mararon'
+
+In [10]: print elven_generator.get_name_simple(GENDER.MALE, LANGUAGE.RU)  # Russian transcription
+Ттомусиэл
 ```
 
-вместо текста можно получить объект имени с подробной информацией
+Вместо текста можно получить объект имени с подробной информацией.
+
+Для имён на кирилице есть формы всех падажей и чисел.
 
 ```python
-In [10]: name = elven_generator.get_name()
+In [11]: name = elven_generator.get_name()
 
-In [11]: name.translations
-Out[11]: {u'f': {u'en': u"mil'Jashoreti"}} # all transcriptions
+In [12]: name.translations  # all translations
+Out[12]: 
+{u'm': {u'en': u"rae'Gileleel",
+  u'ru': [u"\u0440\u0430\u044d'\u0413\u0438\u043b\u044c\u0435\u043b\u044d\u0435\u043b\u044c",
+   u"\u0440\u0430\u044d'\u0413\u0438\u043b\u044c\u0435\u043b\u044d\u0435\u043b\u044f",
+   u"\u0440\u0430\u044d'\u0413\u0438\u043b\u044c\u0435\u043b\u044d\u0435\u043b\u044e",
+   u"\u0440\u0430\u044d'\u0413\u0438\u043b\u044c\u0435\u043b\u044d\u0435\u043b\u044f",
+   u"\u0440\u0430\u044d'\u0413\u0438\u043b\u044c\u0435\u043b\u044d\u0435\u043b\u0435\u043c",
+   u"\u0440\u0430\u044d'\u0413\u0438\u043b\u044c\u0435\u043b\u044d\u0435\u043b\u0435",
+   u"\u0440\u0430\u044d'\u0413\u0438\u043b\u044c\u0435\u043b\u044d\u0435\u043b\u0438",
+   u"\u0440\u0430\u044d'\u0413\u0438\u043b\u044c\u0435\u043b\u044d\u0435\u043b\u0435\u0439",
+   u"\u0440\u0430\u044d'\u0413\u0438\u043b\u044c\u0435\u043b\u044d\u0435\u043b\u044f\u043c",
+   u"\u0440\u0430\u044d'\u0413\u0438\u043b\u044c\u0435\u043b\u044d\u0435\u043b\u0435\u0439",
+   u"\u0440\u0430\u044d'\u0413\u0438\u043b\u044c\u0435\u043b\u044d\u0435\u043b\u044f\u043c\u0438",
+   u"\u0440\u0430\u044d'\u0413\u0438\u043b\u044c\u0435\u043b\u044d\u0435\u043b\u044f\u0445"]}}
 
-In [12]: name.genders
-Out[12]: frozenset([u'f']) # all genders
+In [13]: name.genders
+Out[13]: frozenset({u'm'}) # all genders
 ```
 
 На текущий момент реализовано два алгоритма генерации имён:
