@@ -3,7 +3,7 @@
 import os
 
 from pynames.from_tables_generator import FromTablesGenerator
-from pynames.iron_kingdoms import GobberFullnameGenerator
+from pynames.generators.iron_kingdoms import GobberFullnameGenerator
 
 FIXTURES_DIR = os.path.join(os.path.dirname(__file__), 'fixtures')
 

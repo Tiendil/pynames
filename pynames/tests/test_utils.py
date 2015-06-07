@@ -30,7 +30,7 @@ class TestName(unittest.TestCase):
             self.assertTrue(is_file(File('mock')))
             self.assertTrue(is_file(ContentFile('mock')))
 
-    def test_file_dapter(self):
+    def test_file_adapter(self):
         root_dir = os.path.dirname(pynames.__file__)
 
         test_file_path = os.path.join(root_dir, 'tests', 'fixtures', 'test_from_list_generator.json')

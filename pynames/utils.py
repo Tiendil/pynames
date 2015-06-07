@@ -2,9 +2,8 @@
 
 import contextlib
 import importlib
+import pkgutil
 import os
-
-import pynames
 
 
 def get_all_generators():
@@ -15,19 +14,11 @@ def get_all_generators():
 
     submodules = []
 
-    root_dir = os.path.dirname(pynames.__file__)
+    pynames_root = os.path.join(os.path.split(os.path.abspath(__file__))[0], 'generators')
 
-    for dirname in os.listdir(root_dir):
-        module_path = os.path.join(root_dir, dirname)
-        if not os.path.isdir(module_path):
-            continue
-
-        try:
-            module_name = 'pynames.%s' % dirname
-            module = importlib.import_module(module_name)
-            submodules.append(module)
-        except Exception:
-            continue
+    for _, module_name, _ in pkgutil.iter_modules([pynames_root], prefix='pynames.generators.'):
+        module = importlib.import_module(module_name)
+        submodules.append(module)
 
     generators = []
 

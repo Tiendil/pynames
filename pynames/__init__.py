@@ -1,10 +1,6 @@
 # coding: utf-8
 
-import pynames.elven
-import pynames.mongolian
-import pynames.scandinavian
-import pynames.korean
-import pynames.russian
+from . import generators
 
-from pynames.relations import GENDER, LANGUAGE
-from pynames.utils import get_all_generators
+from .relations import GENDER, LANGUAGE
+from .utils import get_all_generators
