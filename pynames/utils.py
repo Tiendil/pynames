@@ -8,9 +8,9 @@ import os
 
 def get_all_generators():
 
-    from pynames.base import BaseGenerator
-    from pynames.from_list_generator import FromListGenerator
-    from pynames.from_tables_generator import FromTablesGenerator, FromCSVTablesGenerator
+    from .base import BaseGenerator
+    from .from_list_generator import FromListGenerator
+    from .from_tables_generator import FromTablesGenerator, FromCSVTablesGenerator
 
     submodules = []
 

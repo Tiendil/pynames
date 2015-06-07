@@ -1,2 +1,3 @@
 global-include *.json
 global-include *.csv
+global-include *.rst

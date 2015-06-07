@@ -7,14 +7,20 @@ import unittest
 from pynames.utils import is_file, file_adapter
 import pynames
 
+DJANGO_INSTALLED = False
+
+UploadedFile = None
+File = None
+ContentFile = None
+
 try:
     from django.core.files import File
     from django.core.files.base import ContentFile
     from django.core.files.uploadedfile import UploadedFile
-except:
-    UploadedFile = None
-    File = None
-    ContentFile = None
+
+    DJANGO_INSTALLED = True
+except ImportError:
+    pass
 
 
 class TestName(unittest.TestCase):
@@ -25,12 +31,17 @@ class TestName(unittest.TestCase):
         some_file.close()
 
     def test_is_file_on_django_files(self):
-        if File and UploadedFile and ContentFile:
-            self.assertTrue(is_file(UploadedFile('mock')))
-            self.assertTrue(is_file(File('mock')))
-            self.assertTrue(is_file(ContentFile('mock')))
+        if not DJANGO_INSTALLED:
+            return
+
+        self.assertTrue(is_file(UploadedFile('mock')))
+        self.assertTrue(is_file(File('mock')))
+        self.assertTrue(is_file(ContentFile('mock')))
 
     def test_file_adapter(self):
+        if not DJANGO_INSTALLED:
+            return
+
         root_dir = os.path.dirname(pynames.__file__)
 
         test_file_path = os.path.join(root_dir, 'tests', 'fixtures', 'test_from_list_generator.json')
