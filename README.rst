@@ -46,7 +46,7 @@ Usage
 
 .. code:: python
 
-   from pynames.generators import GENDER,  LANGUAGE
+   from pynames import GENDER, LANGUAGE
 
 All generators are divided by "races", so that all generators of elven names are placed in the module ``pynames.generators.elven``, etc.
 
