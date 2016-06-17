@@ -1,5 +1,9 @@
 # coding: utf-8
 
+from __future__ import unicode_literals
+
+import six
+
 from pynames.relations import GENDER, LANGUAGE
 from pynames import exceptions
 
@@ -20,7 +24,7 @@ class Name(object):
 
         forms = self.translations[gender][language]
 
-        if not isinstance(forms, basestring):
+        if not isinstance(forms, six.string_types):
             return forms[0]
 
         return forms
@@ -31,7 +35,7 @@ class Name(object):
 
         forms = self.translations[gender][language]
 
-        if not isinstance(forms, basestring):
+        if not isinstance(forms, six.string_types):
             return list(forms)
 
         return None

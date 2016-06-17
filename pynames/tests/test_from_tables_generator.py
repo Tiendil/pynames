@@ -1,7 +1,12 @@
 # coding: utf-8
 
+from __future__ import unicode_literals
+
 import os
 import unittest
+
+import six
+from six.moves import xrange
 
 from pynames.relations import GENDER, LANGUAGE
 from pynames.from_tables_generator import FromTablesGenerator, FromCSVTablesGenerator
@@ -116,13 +121,9 @@ class TestFromCSVTablesGenerator(unittest.TestCase):
         csv_generator = self.TestCSVGenerator()
 
         for attr_name in ['native_language', 'languages', 'templates', 'tables']:
-            try:
-                json_attr = getattr(json_generator, attr_name)
-                csv_attr = getattr(csv_generator, attr_name)
-                if isinstance(json_attr, list):
-                    self.assertItemsEqual(csv_attr, json_attr)
-                else:
-                    self.assertEqual(csv_attr, json_attr)
-            except Exception:
-                from nose.tools import set_trace; set_trace()
-                raise
+            json_attr = getattr(json_generator, attr_name)
+            csv_attr = getattr(csv_generator, attr_name)
+            if isinstance(json_attr, list):
+                six.assertCountEqual(self, csv_attr, json_attr)
+            else:
+                self.assertEqual(csv_attr, json_attr)

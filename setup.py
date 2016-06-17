@@ -22,12 +22,14 @@ setuptools.setup(
 
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
 
         'Natural Language :: English',
         'Natural Language :: Russian'],
     keywords=['gamedev', 'game', 'game development', 'names', 'names generation'],
     packages=setuptools.find_packages(),
-    install_requires=['unicodecsv'],
+    install_requires=['six', 'unicodecsv'],
     include_package_data=True,
     test_suite = 'tests',
     )
