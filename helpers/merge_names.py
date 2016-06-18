@@ -3,6 +3,8 @@
 import os
 import json
 
+import six
+
 
 FIXTURES = ['mongolian/fixtures/mongolian_names_list.json',
             'russian/fixtures/pagan_names_list.json',
@@ -27,8 +29,8 @@ def names_equal(name, original_name):
             if language not in original_languages:
                 continue
 
-            text = languages[language] if isinstance(languages[language], basestring) else languages[language][0]
-            original_text = original_languages[language] if isinstance(original_languages[language], basestring) else original_languages[language][0]
+            text = languages[language] if isinstance(languages[language], six.string_types) else languages[language][0]
+            original_text = original_languages[language] if isinstance(original_languages[language], six.string_types) else original_languages[language][0]
 
             if text == original_text:
                 return True
@@ -37,8 +39,8 @@ def names_equal(name, original_name):
 
 
 def merge_names(name, original_name):
-    for gender, languages in name['genders'].iteritems():
-        for language, data in languages.iteritems():
+    for gender, languages in six.iteritems(name['genders']):
+        for language, data in six.iteritems(languages):
             original_name['genders'][gender][language] = data
 
 
@@ -54,7 +56,7 @@ def pretty_dump(data):
     content = []
     content.append(u'{')
 
-    for key, value in data.iteritems():
+    for key, value in six.iteritems(data):
         if key != 'names':
             content.append(u'    "%s": %s,' % (key, json.dumps(value, ensure_ascii=False)))
 

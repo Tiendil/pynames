@@ -1,5 +1,7 @@
 # coding: utf-8
 
+from __future__ import unicode_literals
+
 
 class PynamesError(Exception):
     MSG = None
@@ -9,7 +11,7 @@ class PynamesError(Exception):
 
 
 class NoDefaultNameValue(PynamesError):
-    MSG = u'Name: can not get default value for name with data: %(raw_data)r'
+    MSG = 'Name: can not get default value for name with data: %(raw_data)r'
 
 
 class FromListGeneratorError(PynamesError):
@@ -17,7 +19,7 @@ class FromListGeneratorError(PynamesError):
 
 
 class NoNamesLoadedFromListError(FromListGeneratorError):
-    MSG = u'no names loaded from "%(source)s"'
+    MSG = 'no names loaded from "%(source)s"'
 
 
 class FromTablesGeneratorError(PynamesError):
@@ -25,11 +27,11 @@ class FromTablesGeneratorError(PynamesError):
 
 
 class WrongTemplateStructureError(FromTablesGeneratorError):
-    MSG = u'wrong template structure - cannot choose template for genders %(genders)r with template source: "%(source)s"'
+    MSG = 'wrong template structure - cannot choose template for genders %(genders)r with template source: "%(source)s"'
 
 
 class NotEqualFormsLengths(FromTablesGeneratorError):
-    MSG = u'not equal forms lengths: [%(left)r] and [%(right)r]'
+    MSG = 'not equal forms lengths: [%(left)r] and [%(right)r]'
 
 
 class WrongCSVData(FromTablesGeneratorError):

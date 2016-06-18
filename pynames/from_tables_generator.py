@@ -1,11 +1,14 @@
 # coding: utf-8
 
+from __future__ import unicode_literals
+
 # python lib:
 import json
 import random
 from collections import Iterable
 
 # thirdparties:
+import six
 import unicodecsv
 
 # pynames:
@@ -39,28 +42,28 @@ class Template(object):
 
     @classmethod
     def merge_forms(cls, left, right):
-        if not isinstance(left, basestring):
-            if not isinstance(right, basestring):
+        if not isinstance(left, six.string_types):
+            if not isinstance(right, six.string_types):
                 if len(left) != len(right):
                     raise exceptions.NotEqualFormsLengths(left=left, right=right)
                 return [l+r for l, r in zip(left, right)]
             else:
                 return [l+right for l in left]
         else:
-            if not isinstance(right, basestring):
+            if not isinstance(right, six.string_types):
                 return [left+r for r in right]
             else:
                 return left + right
 
     def get_name(self, tables):
         languages = dict(
-            (lang, u'') for lang in self.languages
+            (lang, '') for lang in self.languages
         )
         for slug in self.template:
             record = random.choice(tables[slug])
             languages = {
                 lang: self.merge_forms(forms, record['languages'][lang])
-                for lang, forms in languages.iteritems()
+                for lang, forms in six.iteritems(languages)
             }
 
         genders = dict(
@@ -103,7 +106,7 @@ class FromTablesGenerator(BaseGenerator):
             raise NotImplementedError(error_msg)
 
         with file_adapter(source) as f:
-            data = json.load(f)
+            data = json.loads(f.read().decode('utf-8'))
             self.native_language = data['native_language']
             self.languages = set(data['languages'])
             self.full_forms_for_languages = set(data.get('full_forms_for_languages', set()))
@@ -153,7 +156,7 @@ class FromTablesGenerator(BaseGenerator):
         return name.get_for(gender, language)
 
     def test_names_consistency(self, test):
-        for table_name, table in self.tables.iteritems():
+        for table_name, table in six.iteritems(self.tables):
             for record in table:
                 test.assertEqual(set(record['languages'].keys()) & self.languages, self.languages)
 
