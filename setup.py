@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name='Pynames',
-    version='0.2.0',
+    version='0.2.1',
     description='name generation library',
     long_description = open('README.rst').read(),
     url='https://github.com/Tiendil/pynames',
