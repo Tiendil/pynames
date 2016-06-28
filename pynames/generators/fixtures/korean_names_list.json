@@ -3,7 +3,7 @@
     "native_language": "en",
     "languages": ["en", "ru"],
     "source": "http://www.gaminggeeks.org/Resources/KateMonk/",
-    "translation": "Wizard(downcase w)orker and Swingaroo",
+    "translation": "Wizard-Worker and Swingaroo",
     "names": [
     {"genders": {"m": {"ru": ["Ан-Кор", "Ан-Кора", "Ан-Кору", "Ан-Кора", "Ан-Кором", "Ан-Коре", "Ан-Коры", "Ан-Коров", "Ан-Корам", "Ан-Коров", "Ан-Корами", "Ан-Корах"], "en": "An-Kor"}}},
     {"genders": {"m": {"ru": ["Пон-Чхол", "Пон-Чхола", "Пон-Чхолу", "Пон-Чхола", "Пон-Чхолом", "Пон-Чхоле", "Пон-Чхолы", "Пон-Чхолов", "Пон-Чхолам", "Пон-Чхолов", "Пон-Чхолами", "Пон-Чхолах"], "en": "Bong-Chol"}}},
