@@ -24,7 +24,7 @@ class FromListGenerator(BaseGenerator):
             raise NotImplementedError(error_msg)
 
 
-        with open(self.SOURCE) as f:
+        with open(self.SOURCE, encoding='utf-8') as f:
             names_data = json.load(f, encoding='utf-8')
             self.native_language = names_data['native_language']
             self.languages = set(names_data['languages'])
