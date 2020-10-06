@@ -3,9 +3,9 @@ import setuptools
 
 setuptools.setup(
     name='Pynames',
-    version='0.2.2',
+    version='0.2.3',
     description='name generation library',
-    long_description = open('README.rst').read(),
+    long_description=open('README.rst').read(),
     url='https://github.com/Tiendil/pynames',
     author='Aleksey Yeletsky <Tiendil>',
     author_email='a.eletsky@gmail.com',
@@ -19,11 +19,6 @@ setuptools.setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
 
         'License :: OSI Approved :: BSD License',
-
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
 
         'Natural Language :: English',
         'Natural Language :: Russian'],

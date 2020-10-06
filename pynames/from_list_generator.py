@@ -23,9 +23,8 @@ class FromListGenerator(BaseGenerator):
             error_msg = 'FromListGenerator: you must make subclass of FromListGenerator and define attribute SOURCE in it.'
             raise NotImplementedError(error_msg)
 
-
         with open(self.SOURCE, encoding='utf-8') as f:
-            names_data = json.load(f, encoding='utf-8')
+            names_data = json.load(f)
             self.native_language = names_data['native_language']
             self.languages = set(names_data['languages'])
             self.full_forms_for_languages = set(names_data.get('full_forms_for_languages', set()))
