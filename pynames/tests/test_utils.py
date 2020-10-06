@@ -48,14 +48,14 @@ class TestName(unittest.TestCase):
 
         test_file_path = os.path.join(root_dir, 'tests', 'fixtures', 'test_from_list_generator.json')
 
-        with open(test_file_path) as f:
+        with open(test_file_path, 'rb') as f:
             target_content = f.read()
 
         with file_adapter(test_file_path) as f:
             self.assertEqual(f.read(), target_content)
 
         django_file_object = ContentFile(target_content)
-        classic_file_object = open(test_file_path, 'r')
+        classic_file_object = open(test_file_path, 'rb')
 
         for tested_file_object in [django_file_object, classic_file_object]:
             with file_adapter(tested_file_object) as f:

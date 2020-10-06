@@ -51,11 +51,11 @@ def is_file(obj):
 
 
 @contextlib.contextmanager
-def file_adapter(file_or_path):
+def file_adapter(file_or_path, mode='rb'):
     """Context manager that works similar to ``open(file_path)``but also accepts already openned file-like objects."""
     if is_file(file_or_path):
         file_obj = file_or_path
     else:
-        file_obj = open(file_or_path, 'rb')
+        file_obj = open(file_or_path, mode)
     yield file_obj
     file_obj.close()
