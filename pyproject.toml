@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "pynames"
+version = "0.2.4"
+description = "Name generation library."
+readme = "README.rst"
+repository = "https://github.com/Tiendil/pynames"
+authors = ["Aliaksei Yaletski (Tiendil) <a.eletsky@gmail.com>"]
+license = "BSD-3"
+include = ["*.json", "*.csv", "*.rst"]
+
+keywords = ["gamedev", "game", "game development", "names", "procedural content generation"]
+classifiers = [
+        "Development Status :: 5 - Production/Stable",
+
+        "Intended Audience :: Developers",
+
+        "Topic :: Games/Entertainment",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+
+        "License :: OSI Approved :: BSD License",
+
+        "Natural Language :: English",
+        "Natural Language :: Russian"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+unicodecsv = "^0.14"

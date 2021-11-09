@@ -5,9 +5,6 @@ from __future__ import unicode_literals
 import os
 import unittest
 
-import six
-from six.moves import xrange
-
 from pynames.relations import GENDER, LANGUAGE
 from pynames.from_tables_generator import FromTablesGenerator, FromCSVTablesGenerator
 
@@ -49,19 +46,19 @@ class TestFromTablesGenerator(unittest.TestCase):
     def test_get_name_simple(self):
         generator = self.TestGenerator()
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name_simple(gender=GENDER.MALE, language=LANGUAGE.RU)
             self.assertTrue(name in self.NAMES_RU_MALE)
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name_simple(gender=GENDER.FEMALE, language=LANGUAGE.RU)
             self.assertTrue(name in self.NAMES_RU_FEMALE)
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name_simple(gender=GENDER.MALE, language=LANGUAGE.EN)
             self.assertTrue(name in self.NAMES_EN_MALE)
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name_simple(gender=GENDER.FEMALE, language=LANGUAGE.EN)
             self.assertTrue(name in self.NAMES_EN_FEMALE)
 
@@ -70,14 +67,14 @@ class TestFromTablesGenerator(unittest.TestCase):
 
         has_none = set()
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name(genders=[GENDER.MALE])
             self.assertTrue(name.get_for(GENDER.MALE, LANGUAGE.RU) in self.NAMES_RU_MALE)
             has_none.add(name.get_forms_for(GENDER.MALE, LANGUAGE.RU) is None)
 
         self.assertEqual(has_none, set([True, False]))
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name(genders=[GENDER.FEMALE])
             self.assertTrue(name.get_for(GENDER.FEMALE, LANGUAGE.RU) in self.NAMES_RU_FEMALE)
             self.assertNotEqual(name.get_forms_for(GENDER.FEMALE, LANGUAGE.RU), None)
@@ -85,14 +82,14 @@ class TestFromTablesGenerator(unittest.TestCase):
 
         has_none = set()
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name(genders=[GENDER.MALE])
             self.assertTrue(name.get_for(GENDER.MALE, LANGUAGE.EN) in self.NAMES_EN_MALE)
             has_none.add(name.get_forms_for(GENDER.MALE, LANGUAGE.RU) is None)
 
         self.assertEqual(has_none, set([True, False]))
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name(genders=[GENDER.FEMALE])
             self.assertTrue(name.get_for(GENDER.FEMALE, LANGUAGE.EN) in self.NAMES_EN_FEMALE)
             self.assertEqual(name.get_forms_for(GENDER.FEMALE, LANGUAGE.EN), None)
@@ -124,6 +121,6 @@ class TestFromCSVTablesGenerator(unittest.TestCase):
             json_attr = getattr(json_generator, attr_name)
             csv_attr = getattr(csv_generator, attr_name)
             if isinstance(json_attr, list):
-                six.assertCountEqual(self, csv_attr, json_attr)
+                self.assertCountEqual(csv_attr, json_attr)
             else:
                 self.assertEqual(csv_attr, json_attr)

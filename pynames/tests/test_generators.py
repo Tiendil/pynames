@@ -21,7 +21,10 @@ def create_test_method(generator_class):
         generator = generator_class()
 
         self.assertTrue(generator.get_names_number() > 0)
-        self.assertTrue(generator.get_names_number(GENDER.MALE) + generator.get_names_number(GENDER.FEMALE) >= generator.get_names_number())
+
+        self.assertTrue(generator.get_names_number(GENDER.MALE) + generator.get_names_number(GENDER.FEMALE) >=
+                        generator.get_names_number())
+
         self.assertTrue(generator.get_name_simple())
         self.assertTrue(generator.get_name())
 

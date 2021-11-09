@@ -5,10 +5,9 @@ from __future__ import unicode_literals
 # python lib:
 import json
 import random
-from collections import Iterable
+from collections.abc import Iterable
 
 # thirdparties:
-import six
 import unicodecsv
 
 # pynames:
@@ -42,15 +41,15 @@ class Template(object):
 
     @classmethod
     def merge_forms(cls, left, right):
-        if not isinstance(left, six.string_types):
-            if not isinstance(right, six.string_types):
+        if not isinstance(left, str):
+            if not isinstance(right, str):
                 if len(left) != len(right):
                     raise exceptions.NotEqualFormsLengths(left=left, right=right)
                 return [l+r for l, r in zip(left, right)]
             else:
                 return [l+right for l in left]
         else:
-            if not isinstance(right, six.string_types):
+            if not isinstance(right, str):
                 return [left+r for r in right]
             else:
                 return left + right
@@ -63,7 +62,7 @@ class Template(object):
             record = random.choice(tables[slug])
             languages = {
                 lang: self.merge_forms(forms, record['languages'][lang])
-                for lang, forms in six.iteritems(languages)
+                for lang, forms in languages.items()
             }
 
         genders = dict(
@@ -141,7 +140,7 @@ class FromTablesGenerator(BaseGenerator):
         templates = self._get_templates_slice(genders)
         definition_number = sum([template.probability for template in templates])
 
-        choice = random.randint(1, definition_number)
+        choice = random.uniform(0.0, definition_number)
 
         for template in templates:
             if choice > template.probability:
@@ -156,7 +155,7 @@ class FromTablesGenerator(BaseGenerator):
         return name.get_for(gender, language)
 
     def test_names_consistency(self, test):
-        for table_name, table in six.iteritems(self.tables):
+        for table_name, table in self.tables.items():
             for record in table:
                 test.assertEqual(set(record['languages'].keys()) & self.languages, self.languages)
 

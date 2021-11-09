@@ -5,8 +5,6 @@ from __future__ import unicode_literals
 import os
 import unittest
 
-from six.moves import xrange
-
 from pynames.relations import GENDER, LANGUAGE
 from pynames.from_list_generator import FromListGenerator
 
@@ -50,19 +48,19 @@ class TestFromListGenerator(unittest.TestCase):
     def test_get_name__simple(self):
         generator = self.TestGenerator()
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name_simple(gender=GENDER.MALE, language=LANGUAGE.RU)
             self.assertTrue(name in self.NAMES_RU_MALE)
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name_simple(gender=GENDER.FEMALE, language=LANGUAGE.RU)
             self.assertTrue(name in self.NAMES_RU_FEMALE)
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name_simple(gender=GENDER.MALE, language=LANGUAGE.EN)
             self.assertTrue(name in self.NAMES_EN_MALE)
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name_simple(gender=GENDER.FEMALE, language=LANGUAGE.EN)
             self.assertTrue(name in self.NAMES_EN_FEMALE)
 
@@ -70,24 +68,24 @@ class TestFromListGenerator(unittest.TestCase):
     def test_get_name__with_forms(self):
         generator = self.TestGeneratorWithForms()
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name(genders=[GENDER.MALE])
             self.assertTrue(name.get_for(GENDER.MALE, LANGUAGE.RU) in self.NAMES_RU_MALE)
             self.assertNotEqual(name.get_forms_for(GENDER.MALE, LANGUAGE.RU), None)
             self.assertTrue(name.get_forms_for(GENDER.MALE, LANGUAGE.RU)[1] in self.NAMES_RU_MALE_FORMS)
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name(genders=[GENDER.FEMALE])
             self.assertTrue(name.get_for(GENDER.FEMALE, LANGUAGE.RU) in self.NAMES_RU_FEMALE)
             self.assertNotEqual(name.get_forms_for(GENDER.FEMALE, LANGUAGE.RU), None)
             self.assertTrue(name.get_forms_for(GENDER.FEMALE, LANGUAGE.RU)[1] in self.NAMES_RU_FEMALE_FORMS)
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name(genders=[GENDER.MALE])
             self.assertTrue(name.get_for(GENDER.MALE, LANGUAGE.EN) in self.NAMES_EN_MALE)
             self.assertEqual(name.get_forms_for(GENDER.MALE, LANGUAGE.EN), None)
 
-        for i in xrange(100):
+        for i in range(100):
             name = generator.get_name(genders=[GENDER.FEMALE])
             self.assertTrue(name.get_for(GENDER.FEMALE, LANGUAGE.EN) in self.NAMES_EN_FEMALE)
             self.assertEqual(name.get_forms_for(GENDER.FEMALE, LANGUAGE.EN), None)
